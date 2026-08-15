@@ -24,6 +24,11 @@ public class Projectile : MonoBehaviour
             return;
         }
 
+        if (other.TryGetComponent(out Health health))
+        {
+            health.TakeDamage((int)damage);
+        }
+
         Destroy(gameObject);
     }
 }
