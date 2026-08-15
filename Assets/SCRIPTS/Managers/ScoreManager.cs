@@ -1,11 +1,21 @@
 using UnityEngine;
+using System.Collections.Generic;
 using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager Instance { get; private set; }
+    public static ScoreManager Instance;
+
+    [System.Serializable]
+    public struct EnemyScoreConfiguration
+    {
+        public Enemy enemyPrefab;
+        public int scoreValue;
+    }
 
     public TextMeshProUGUI scoreText;
+
+    public List<EnemyScoreConfiguration> enemyScoreConfigurations = new List<EnemyScoreConfiguration>();
 
     private int currentScore = 0;
 
@@ -27,15 +37,25 @@ public class ScoreManager : MonoBehaviour
         UpdateUI();
     }
 
-    public void OnEnemyKilled(Enemy enemy)
+    public void OnEnemyKilled(Enemy killedEnemy)
     {
         int pointsAwarded = 0;
+        bool scoreFound = false;
 
-        switch (enemy)
+        foreach (var config in enemyScoreConfigurations)
         {
-            case Enemy _:
-                pointsAwarded = 10;
+            if (config.enemyPrefab != null && config.enemyPrefab.GetType() == killedEnemy.GetType())
+            {
+                pointsAwarded = config.scoreValue;
+                scoreFound = true;
                 break;
+            }
+        }
+
+        if (!scoreFound)
+        {
+            pointsAwarded = 1;
+            Debug.LogWarning($"No score configuration found for enemy type: {killedEnemy.GetType().Name}");
         }
 
         currentScore += pointsAwarded;
