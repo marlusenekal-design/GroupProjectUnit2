@@ -12,9 +12,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    private Weapon weapon;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        weapon = GetComponent<Weapon>();
     }
 
     private void Update()
@@ -25,6 +28,11 @@ public class PlayerController : MonoBehaviour
         movement.Normalize(); // Normalize to prevent faster diagonal movement
 
         RotateTowardMouse();
+
+        if (Input.GetMouseButton(0) && weapon != null)
+        {
+            weapon.Fire();
+        }
     }
 
     void FixedUpdate()
