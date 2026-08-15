@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject mainPanel;
     public GameObject instructionsPanel;
 
     public void StartGame()
@@ -12,6 +13,11 @@ public class MainMenu : MonoBehaviour
 
     public void ShowInstructions()
     {
+        if (mainPanel != null)
+        {
+            mainPanel.SetActive(false);
+        }
+
         if (instructionsPanel != null)
         {
             instructionsPanel.SetActive(true);
@@ -23,6 +29,11 @@ public class MainMenu : MonoBehaviour
         if (instructionsPanel != null)
         {
             instructionsPanel.SetActive(false);
+        }
+
+        if (mainPanel != null)
+        {
+            mainPanel.SetActive(true);
         }
     }
 

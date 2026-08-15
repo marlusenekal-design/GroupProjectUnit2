@@ -854,6 +854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ea06be70208ff4190e0e4c7fbeb744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
+  mainPanel: {fileID: 719531278}
   instructionsPanel: {fileID: 709763894}
 --- !u!1 &949677377
 GameObject:
