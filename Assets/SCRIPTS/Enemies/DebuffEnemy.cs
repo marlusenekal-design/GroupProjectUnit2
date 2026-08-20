@@ -17,9 +17,9 @@ public class DebuffEnemy : Enemy
     {
         base.Start();
         targetSpeed = moveSpeed;
-        weapon = new Weapon("DebuffEnemy Weapon", weaponDamage, bulletSpeed);
+        //weapon = new Weapon("DebuffEnemy Weapon", weaponDamage, bulletSpeed);
     }
-    protected override void Update()
+    /*protected override void Update()
     {
         if (target == null)
         {
@@ -58,4 +58,4 @@ public class DebuffEnemy : Enemy
     {
         weapon.Shoot(bulletPrefab, this, "Player", 5);
     }
-}
+*/}
