@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5740061316102223124}
   - component: {fileID: 4753492414481595995}
   - component: {fileID: 9100536712916914276}
-  - component: {fileID: 664654817604383186}
+  - component: {fileID: 7101288160962348883}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet - Player
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &664654817604383186
+--- !u!114 &7101288160962348883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,10 +166,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311814626642429063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93c723511703a7c4981070e9afc454ab, type: 3}
+  m_Script: {fileID: 11500000, guid: f8179d79682ee5c4397398342f2005df, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  m_EditorClassIdentifier: Assembly-CSharp::StandardBullet
   speed: 10
-  lifetime: 5
+  lifetime: 3
   damage: 10
   ownerTag: Player

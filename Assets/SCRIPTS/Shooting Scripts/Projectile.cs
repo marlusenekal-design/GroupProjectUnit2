@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
@@ -29,6 +30,11 @@ public class Projectile : MonoBehaviour
             damageable.TakeDamage((int)damage);
         }
 
+        OnImpact(other);
+    }
+
+    protected virtual void OnImpact(Collider2D hitCollider)
+    {
         Destroy(gameObject);
     }
 }
