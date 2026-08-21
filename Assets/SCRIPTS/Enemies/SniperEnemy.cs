@@ -34,7 +34,7 @@ public class SniperEnemy : Enemy
             MoveToward(retreatTarget);
         }
 
-        if (weapon != null && distanceToPlayer <= engagementDistance)
+        if (weapon != null && distanceToPlayer <= engagementDistance && IsOnScreen())
         {
             weapon.Fire();
         }

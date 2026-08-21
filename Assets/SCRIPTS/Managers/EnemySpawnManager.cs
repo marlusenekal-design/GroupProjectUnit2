@@ -8,6 +8,22 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private float timer = 0f;
     public Transform spawnLocation;
 
+
+    private void Start()
+    {
+        if (spawnLocation == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                spawnLocation = player.transform;
+            }
+            else
+            {
+                Debug.LogError("There is no Player in the scene");
+            }
+        }
+    }
     void Update()
     {
         timer += Time.deltaTime;
@@ -21,9 +37,19 @@ public class EnemySpawnManager : MonoBehaviour
 
     void SpawnEnemy()
     {
-        GameObject enemy = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
+        if (enemyPrefabs == null || enemyPrefabs.Length == 0)
+        {
+            Debug.LogError("Enemy prefabs are not assigned in the EnemySpawnManager.");
+            return;
+        }
+
+        GameObject selectedPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
+        Vector3 centerPos = spawnLocation != null ? spawnLocation.position : transform.position;
 
         Vector2 spawnPos = (Vector2)spawnLocation.position + Random.insideUnitCircle.normalized * spawnRadius;
-        Instantiate(enemy, spawnPos, Quaternion.identity);
+
+        Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
     }
 }

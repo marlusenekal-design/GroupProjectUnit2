@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public float moveSpeed = 3f;
+    private bool hasEnteredScreen = false;
     public bool clampToScreen = true;
     public float screenPadding = 0.5f;
 
@@ -56,8 +57,25 @@ public abstract class Enemy : MonoBehaviour
 
     protected void ClampToScreenBounds()
     {
+        if (mainCamera == null)
+        {
+            return;
+        }
+
         Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
-        
+
+        if (!hasEnteredScreen)
+        {
+            if (viewportPosition.x >= 0f && viewportPosition.x <= 1f && viewportPosition.y >= 0f && viewportPosition.y <= 1f)
+            {
+                hasEnteredScreen = true;
+            }
+            else
+            {
+                return;
+            }
+        }
+
         float paddingX = screenPadding / (mainCamera.orthographicSize * mainCamera.aspect * 2f);
         float paddingY = screenPadding / (mainCamera.orthographicSize * 2f);
 
@@ -66,6 +84,20 @@ public abstract class Enemy : MonoBehaviour
 
         transform.position = mainCamera.ViewportToWorldPoint(viewportPosition);
     }
+
+    protected bool IsOnScreen()
+    {
+        Camera mainCamera = Camera.main;
+        if (mainCamera == null)
+        {
+            return false;
+        }
+
+        Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
+
+        return viewportPosition.x >= 0f && viewportPosition.x <= 1f && viewportPosition.y >= 0f && viewportPosition.y <= 1f;
+    }
+
 
     protected virtual void OnDestroy()
     {

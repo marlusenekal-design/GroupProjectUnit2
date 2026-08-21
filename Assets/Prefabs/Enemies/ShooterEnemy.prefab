@@ -130,6 +130,7 @@ MonoBehaviour:
   screenPadding: 0.5
   stoppingDistance: 3
   retreatDistance: 3
+  shootDistance: 8
   contactDamage: 5
 --- !u!114 &5032261688415218946
 MonoBehaviour:

@@ -36,7 +36,7 @@ public class ShooterEnemy : Enemy
             MoveToward(retreatTarget);
         }
 
-        if (weapon != null && distanceToPlayer <= shootDistance)
+        if (weapon != null && distanceToPlayer <= shootDistance && IsOnScreen())
         {
             weapon.Fire();
         }
