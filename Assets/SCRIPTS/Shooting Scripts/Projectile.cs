@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
-    public float lifetime = 5f;
+    public float lifetime = 3f;
     public float damage = 10f;
 
     public string ownerTag;
@@ -24,9 +24,9 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        if (other.TryGetComponent(out Health health))
+        if (other.TryGetComponent(out IDamageable damageable))
         {
-            health.TakeDamage((int)damage);
+            damageable.TakeDamage((int)damage);
         }
 
         Destroy(gameObject);
