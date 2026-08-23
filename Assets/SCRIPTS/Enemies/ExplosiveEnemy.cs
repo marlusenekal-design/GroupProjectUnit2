@@ -27,6 +27,10 @@ public class ExplosiveEnemy : Enemy
 
     private void Explode()
     {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayExploderBoom();
+        }
         Collider2D[] hitObjects = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
 
         foreach (Collider2D obj in hitObjects)

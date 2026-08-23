@@ -6,6 +6,13 @@ public class MainMenu : MonoBehaviour
     public GameObject mainPanel;
     public GameObject instructionsPanel;
 
+    private void Start()
+    {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayMainMenuMusic();
+        }
+    }
     public void StartGame()
     {
         SceneManager.LoadScene("Gameplay Scene");
@@ -13,6 +20,10 @@ public class MainMenu : MonoBehaviour
 
     public void ShowInstructions()
     {
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayMainMenuMusic();
+        }
         if (mainPanel != null)
         {
             mainPanel.SetActive(false);

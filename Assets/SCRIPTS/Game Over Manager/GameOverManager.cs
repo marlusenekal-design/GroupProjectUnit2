@@ -5,8 +5,8 @@ using TMPro;
 public class GameOverManager : MonoBehaviour
 {
     [Header("UI Panels")]
-    public GameObject gameOverPanel; 
-    public GameObject creditsPanel;  
+    public GameObject gameOverPanel;
+    public GameObject creditsPanel;
 
     [Header("Text Displays")]
     public TextMeshProUGUI finalScoreText;
@@ -18,7 +18,13 @@ public class GameOverManager : MonoBehaviour
     public void SetupGameOver()
     {
         gameOverPanel.SetActive(true);
-        creditsPanel.SetActive(false); 
+        creditsPanel.SetActive(false);
+
+        
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayGameOverMusic();
+        }
 
         if (ScoreManager.Instance != null)
         {
@@ -43,15 +49,27 @@ public class GameOverManager : MonoBehaviour
     // 4. Opens the Credits Panel and hides the Game Over Panel
     public void GoToCredits()
     {
-        gameOverPanel.SetActive(false); 
-        creditsPanel.SetActive(true);   
+        gameOverPanel.SetActive(false);
+        creditsPanel.SetActive(true);
+
+        
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayCreditsMusic();
+        }
     }
 
     // 5. Closes the Credits Panel and goes back to Game Over
     public void CloseCredits()
     {
-        creditsPanel.SetActive(false);  
-        gameOverPanel.SetActive(true);   
+        creditsPanel.SetActive(false);
+        gameOverPanel.SetActive(true);
+
+        
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayGameOverMusic();
+        }
     }
 
     // 6. Closes the game entirely

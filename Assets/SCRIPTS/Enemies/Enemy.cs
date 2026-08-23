@@ -45,13 +45,13 @@ public abstract class Enemy : MonoBehaviour
     protected void RotateTowardsPlayer()
     {
         Vector2 direction = (playerTransform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg -90f;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
     }
 
     protected void MoveToward(Vector3 targetPosition)
     {
-       Vector2 Direction = (targetPosition - transform.position).normalized;
+        Vector2 Direction = (targetPosition - transform.position).normalized;
         rb.MovePosition(rb.position + Direction * moveSpeed * Time.deltaTime);
     }
 
@@ -101,9 +101,36 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
+        
+        if (!Application.isPlaying) return;
+
+        
+        UnityEngine.SceneManagement.Scene activeScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+
+        
+        if (activeScene.name == "MainMenu" || !gameObject.scene.isLoaded)
+        {
+            return;
+        }
+
+        
+        GameOverManager gameOverMgr = Object.FindFirstObjectByType<GameOverManager>();
+        if (gameOverMgr != null && gameOverMgr.gameOverPanel.activeSelf)
+        {
+            
+            return;
+        }
+
+        
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayEnemyDeath();
+        }
+
         if (ScoreManager.Instance != null)
         {
             ScoreManager.Instance.OnEnemyKilled(this);
         }
     }
+
 }

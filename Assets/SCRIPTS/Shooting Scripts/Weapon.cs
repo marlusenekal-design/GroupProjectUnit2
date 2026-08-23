@@ -24,6 +24,11 @@ public class Weapon : MonoBehaviour
         if (bullet.TryGetComponent(out Projectile projectile))
         {
             projectile.ownerTag = ownerTag;
+
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlayPlayerShoot();
+            }
         }
     }
 }
