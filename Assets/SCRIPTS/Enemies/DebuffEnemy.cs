@@ -4,14 +4,14 @@ public class DebuffEnemy : Enemy
 {
     private float targetSpeed;
     //attack variables
-    [SerializeField] private float attackTime = 1;
-    [SerializeField] private float weaponDamage = 1;
-    [SerializeField] private float bulletSpeed = 10;
-    [SerializeField] private float attackRange;
+    //[SerializeField] private float attackTime = 1;
+    //[SerializeField] private float weaponDamage = 1;
+    //[SerializeField] private float bulletSpeed = 10;
+    //[SerializeField] private float attackRange;
     //[SerializeField] private Bullet bulletPrefab;
 
 
-    float timer = 1;
+    //float timer = 1;
 
     protected override void Start()
     {

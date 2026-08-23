@@ -17,7 +17,7 @@ public class ScoreManager : MonoBehaviour
 
     public List<EnemyScoreConfiguration> enemyScoreConfigurations = new List<EnemyScoreConfiguration>();
 
-    private int currentScore = 0;
+    public static int currentScore = 0;
 
     void Awake()
     {
@@ -34,10 +34,6 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.PlayGameplayMusic();
-        }
         UpdateUI();
     }
 
@@ -73,7 +69,7 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = $"Score: {currentScore}";
         }
     }
-    
+    // This function lets other scripts read the current score safely
     public int GetCurrentScore()
     {
         return currentScore;
