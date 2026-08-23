@@ -12,6 +12,9 @@ public abstract class Enemy : MonoBehaviour
     protected Rigidbody2D rb;
     private Camera mainCamera;
 
+    [Header("Drops")]
+    public GameObject powerUpPrefab;
+
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -120,8 +123,22 @@ public abstract class Enemy : MonoBehaviour
             
             return;
         }
+        if (powerUpPrefab != null && !Weapon.IsPowerUpPresentInScene)
+        {
+            
+            float randomRoll = Random.Range(0f, 100f);
 
-        
+            if (randomRoll <= 30f) 
+            {
+                
+                Weapon.IsPowerUpPresentInScene = true;
+
+                
+                Instantiate(powerUpPrefab, transform.position, Quaternion.identity);
+            }
+        }
+
+
         if (SoundManager.Instance != null)
         {
             SoundManager.Instance.PlayEnemyDeath();

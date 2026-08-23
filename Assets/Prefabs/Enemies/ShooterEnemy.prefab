@@ -128,6 +128,7 @@ MonoBehaviour:
   moveSpeed: 3
   clampToScreen: 1
   screenPadding: 0.5
+  powerUpPrefab: {fileID: 7908547897131343365, guid: 7e56595d2e002744f871e50902033be1, type: 3}
   stoppingDistance: 3
   retreatDistance: 3
   shootDistance: 8
