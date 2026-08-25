@@ -1600,6 +1600,8 @@ GameObject:
   - component: {fileID: 1167009946}
   - component: {fileID: 1167009947}
   - component: {fileID: 1167009948}
+  - component: {fileID: 1167009950}
+  - component: {fileID: 1167009949}
   m_Layer: 0
   m_Name: '***GameManager***'
   m_TagString: Untagged
@@ -1661,7 +1663,35 @@ MonoBehaviour:
     dropChance: 50
   - itemName: Heal
     itemPrefab: {fileID: 1596733407403119604, guid: 320419388d5b9ad4998d659b69850505, type: 3}
-    dropChance: 50
+    dropChance: 70
+--- !u!114 &1167009949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167009945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19b54c5b417014d4ea958b0774593bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpeedModifier
+  speedIncreasePerLevel: 5
+--- !u!114 &1167009950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167009945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69527685c06c3e84f8f305e472ee7831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
+  scoreInterval: 100
+  speedUpPanel: {fileID: 1207287785}
+  notificationDuration: 2
 --- !u!1 &1201399486
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,6 +2566,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1514016488}
   - component: {fileID: 1514016487}
+  - component: {fileID: 1514016489}
   m_Layer: 0
   m_Name: EnemySpawnmanager
   m_TagString: Untagged
@@ -2559,7 +2590,7 @@ MonoBehaviour:
   - {fileID: 3234143864054141170, guid: e82a9f0e5b6fdcf4eb95ea83ab31dccb, type: 3}
   - {fileID: 3234143864054141170, guid: 18d58bac2442ca04d95daff676461115, type: 3}
   - {fileID: 3234143864054141170, guid: e283892fd4eaa65448a342e723941d2f, type: 3}
-  spawnInterval: 2
+  spawnInterval: 2.5
   spawnRadius: 12
   timer: 0
   spawnLocation: {fileID: 498156096}
@@ -2578,6 +2609,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514016489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514016486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd8e0c24d02c6a49b059ea28940ac0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnerRateModifier
+  intervalReduction: 0.2
+  minimumSpawnInterval: 0.4
 --- !u!1 &1552991444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,8 +4258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b54c5b417014d4ea958b0774593bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RogueEnemyMoveSpeed
-  speedUpPanel: {fileID: 1207287785}
-  optionInterval: 100
+  speedIncreasePerLevel: 1
 --- !u!4 &2016024855
 Transform:
   m_ObjectHideFlags: 0
