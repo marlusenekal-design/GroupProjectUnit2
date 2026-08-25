@@ -52,4 +52,10 @@ public class EnemySpawnManager : MonoBehaviour
 
         Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
     }
+
+    public float SpawnInterval
+    {
+        get => spawnInterval;
+        set => spawnInterval = value;
+    }
 }

@@ -26,6 +26,8 @@ public abstract class Enemy : MonoBehaviour
         {
             playerTransform = player.transform;
         }
+
+        moveSpeed += EnemySpeedModifier.ExtraSpeedMultiplier;
     }
 
     protected virtual void Update()
@@ -150,4 +152,8 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    public void IncreaseSpeed(float amount)
+    {
+        moveSpeed += amount;
+    }
 }

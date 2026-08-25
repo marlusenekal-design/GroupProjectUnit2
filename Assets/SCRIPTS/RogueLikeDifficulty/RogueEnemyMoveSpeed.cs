@@ -1,42 +1,31 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 
-public class RogueEnemyMoveSpeed : MonoBehaviour
+public class EnemySpeedModifier : MonoBehaviour
 {
-    public GameObject speedUpPanel;
-    [SerializeField] private int optionInterval = 100;
+    [Header("Speed Settings")]
+    [SerializeField] private float speedIncreasePerLevel = 1f;
 
-    public void ShowSpeedUp(float duration)
+    public static float ExtraSpeedMultiplier { get; private set; } = 0f;
+
+    private void OnEnable()
     {
-        StartCoroutine(SpeedUpRoutine(duration));
+        DifficultyManager.OnDifficultyIncreased += HandleDifficultyIncrease;
     }
-    public void Update()
+
+    private void OnDisable()
     {
-        if (ScoreManager.currentScore >= optionInterval)
+        DifficultyManager.OnDifficultyIncreased -= HandleDifficultyIncrease;
+    }
+
+    private void HandleDifficultyIncrease(int currentLevel)
+    {
+        
+        ExtraSpeedMultiplier += speedIncreasePerLevel;
+
+        Enemy[] activeEnemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+        foreach (Enemy enemy in activeEnemies)
         {
-            ShowSpeedUp(2f);
-            rogueEnemyMoveSpeed();
-            optionInterval = (optionInterval + 100);
+            enemy.IncreaseSpeed(speedIncreasePerLevel);
         }
-    }
-
-    private IEnumerator SpeedUpRoutine(float duration)
-    {
-        /*GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
-        {
-            Destroy(enemy);
-
-            Debug.Log("Enemy Found");
-        }*/
-        speedUpPanel.SetActive(true);
-        yield return new WaitForSeconds(duration);
-        speedUpPanel.SetActive(false);
-
-    }
-void rogueEnemyMoveSpeed()
-    {
-        Enemy.moveSpeed++;
     }
 }
