@@ -1025,8 +1025,8 @@ Transform:
   m_GameObject: {fileID: 692372247}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0304, y: -0.0041, z: 0}
-  m_LocalScale: {x: 1.1062, y: 1.251, z: 1}
+  m_LocalPosition: {x: -0.0304, y: -0.0955, z: 0}
+  m_LocalScale: {x: 1.2394716, y: 1.4642154, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4213,8 +4213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b54c5b417014d4ea958b0774593bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RogueEnemyMoveSpeed
-  speedUpPanel: {fileID: 1207287785}
-  optionInterval: 100
+  speedIncreasePerLevel: 1
 --- !u!4 &2016024855
 Transform:
   m_ObjectHideFlags: 0
