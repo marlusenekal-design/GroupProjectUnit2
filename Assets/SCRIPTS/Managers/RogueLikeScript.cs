@@ -1,3 +1,5 @@
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RogueLikeScript : MonoBehaviour
@@ -14,7 +16,8 @@ public class RogueLikeScript : MonoBehaviour
     [SerializeField] private int optionInterval = 100;
     public static bool roguelike = false;
 
-    void Start()
+
+    private void Start()
     {
 
     }
