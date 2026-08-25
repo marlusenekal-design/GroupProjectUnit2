@@ -4,7 +4,7 @@ public class RogueEnemyMoveSpeed : MonoBehaviour
 {
     void rogueEnemyMoveSpeed()
     {
-        Enemy.moveSpeed++;
+        //Enemy.moveSpeed++;
 
         RogueLikeScript.roguelike = false;
     }

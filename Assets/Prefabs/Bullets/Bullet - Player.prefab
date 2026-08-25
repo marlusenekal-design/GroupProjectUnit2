@@ -171,5 +171,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StandardBullet
   speed: 10
   lifetime: 3
-  damage: 10
+  damage: 50
   ownerTag: Player

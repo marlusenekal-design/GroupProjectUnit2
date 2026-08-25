@@ -50,6 +50,12 @@ public class Health : MonoBehaviour, IDamageable
         {
             Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         }
+
+        if (LootManager.Instance != null)
+        {
+            LootManager.Instance.TryDropLoot(transform.position);
+        }
+
         Destroy(gameObject);
     }
 }

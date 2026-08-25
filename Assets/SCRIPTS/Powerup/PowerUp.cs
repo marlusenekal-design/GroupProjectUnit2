@@ -1,33 +1,38 @@
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour
+[RequireComponent(typeof(Collider2D))]
+public abstract class PowerUp : MonoBehaviour
 {
-    // A flag to ensure the item isn't collected twice in the same frame
+    [Header("Ground Lifetime")]
+    public float groundDespawnTime = 5f; // Seconds before item disappears from ground
+
     private bool isCollected = false;
+
+    protected virtual void Start()
+    {
+        // Automatically destroy the item if left on the ground too long
+        Destroy(gameObject, groundDespawnTime);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the object touching us is the Player and hasn't been picked up yet
         if (collision.CompareTag("Player") && !isCollected)
         {
             isCollected = true;
 
-            // Try to find the Weapon component on the player ship
-            if (collision.TryGetComponent(out Weapon playerWeapon))
-            {
-                // Turn on triple-shot mode!
-                playerWeapon.ActivateTripleShot();
-            }
+            // Apply effect to player
+            ApplyEffect(collision.gameObject);
 
-            // 🎵 Play your satisfying power-up collection audio chime!
+            // Audio chime
             if (SoundManager.Instance != null)
             {
                 SoundManager.Instance.PlayPowerUp();
             }
 
-            // Remove the item clone from the map
+            // Remove item from map immediately
             Destroy(gameObject);
         }
     }
-}
 
+    protected abstract void ApplyEffect(GameObject player);
+}

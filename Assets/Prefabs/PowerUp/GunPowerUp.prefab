@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5529878692397260868}
   - component: {fileID: 3210817224448898019}
   - component: {fileID: 4171385387837091472}
-  - component: {fileID: 1403300288038935498}
+  - component: {fileID: 1416370038456149089}
   m_Layer: 0
   m_Name: GunPowerUp
   m_TagString: Untagged
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.25, y: 0.21}
   m_EdgeRadius: 0
---- !u!114 &1403300288038935498
+--- !u!114 &1416370038456149089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,6 +148,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7908547897131343365}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6beca7b0a950b34cab20d77fce785e9, type: 3}
+  m_Script: {fileID: 11500000, guid: d25c2dda823a814449bee2329300f72f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PowerUp
+  m_EditorClassIdentifier: Assembly-CSharp::TripleShotPowerUp

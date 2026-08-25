@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 509c8db1213c97c4f8306168d1c3b1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShooterEnemy
-  moveSpeed: 3
+  moveSpeed: 50
   clampToScreen: 1
   screenPadding: 0.5
   powerUpPrefab: {fileID: 7908547897131343365, guid: 7e56595d2e002744f871e50902033be1, type: 3}

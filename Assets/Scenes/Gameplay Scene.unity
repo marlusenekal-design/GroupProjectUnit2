@@ -1508,6 +1508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1167009946}
   - component: {fileID: 1167009947}
+  - component: {fileID: 1167009948}
   m_Layer: 0
   m_Name: '***GameManager***'
   m_TagString: Untagged
@@ -1550,6 +1551,26 @@ MonoBehaviour:
     scoreValue: 5
   - enemyPrefab: {fileID: 4124714105240866442, guid: e283892fd4eaa65448a342e723941d2f, type: 3}
     scoreValue: 20
+--- !u!114 &1167009948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167009945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e5391c935b1d24b815de495f18117b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LootManager
+  overallDropChance: 50
+  lootList:
+  - itemName: Shotgun
+    itemPrefab: {fileID: 7908547897131343365, guid: 7e56595d2e002744f871e50902033be1, type: 3}
+    dropChance: 50
+  - itemName: Heal
+    itemPrefab: {fileID: 1596733407403119604, guid: 320419388d5b9ad4998d659b69850505, type: 3}
+    dropChance: 50
 --- !u!1 &1201399486
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -12,6 +13,9 @@ public class Weapon : MonoBehaviour
     [Header("Power Up Settings")]
     // Tracks whether our triple spread shot is currently active
     private bool isTripleShotActive = false;
+
+    // Stores active timer so we can reset/extend duration if another power-up is picked up
+    private Coroutine tripleShotCoroutine;
 
     // Global tracking pattern so enemies know if a power-up already exists in play
     public static bool IsPowerUpPresentInScene = false;
@@ -55,12 +59,29 @@ public class Weapon : MonoBehaviour
         Instantiate(bulletPrefab, firePoint.position, rightRotation);
     }
 
-    // This function gets called by our PowerUp item script upon collision
-    public void ActivateTripleShot()
+    // Called by TripleShotPowerUp.cs with duration parameter
+    public void ActivateTripleShot(float duration = 8f)
+    {
+        // Item consumed from map
+        IsPowerUpPresentInScene = false;
+
+        // If active, stop current timer to reset duration back to max
+        if (tripleShotCoroutine != null)
+        {
+            StopCoroutine(tripleShotCoroutine);
+        }
+
+        tripleShotCoroutine = StartCoroutine(TripleShotTimerRoutine(duration));
+    }
+
+    private IEnumerator TripleShotTimerRoutine(float duration)
     {
         isTripleShotActive = true;
 
-        // The item was collected and used up, so the map is clear for a new one to spawn later!
-        IsPowerUpPresentInScene = false;
+        // Wait for the duration set on the power-up script
+        yield return new WaitForSeconds(duration);
+
+        isTripleShotActive = false;
+        tripleShotCoroutine = null;
     }
 }
