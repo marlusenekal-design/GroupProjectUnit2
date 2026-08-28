@@ -14,11 +14,21 @@ public class Weapon : MonoBehaviour
     // Tracks whether our triple spread shot is currently active
     private bool isTripleShotActive = false;
 
-    // Stores active timer so we can reset/extend duration if another power-up is picked up
+    // Stores active timers so we can reset/extend duration if another power-up is picked up
     private Coroutine tripleShotCoroutine;
+    private Coroutine attackSpeedCoroutine;
+
+    // Base fire rate cached to restore original speed when buff expires
+    private float originalFireRate;
 
     // Global tracking pattern so enemies know if a power-up already exists in play
     public static bool IsPowerUpPresentInScene = false;
+
+    private void Awake()
+    {
+        // Cache original fire rate on start
+        originalFireRate = fireRate;
+    }
 
     public void Fire()
     {
@@ -83,5 +93,33 @@ public class Weapon : MonoBehaviour
 
         isTripleShotActive = false;
         tripleShotCoroutine = null;
+    }
+
+    // Called by AttackSpeedPowerUp.cs
+    public void ActivateAttackSpeedBoost(float multiplier = 2.5f, float duration = 6f)
+    {
+        // Item consumed from map
+        IsPowerUpPresentInScene = false;
+
+        // If active, stop current timer and reset rate before applying new boost
+        if (attackSpeedCoroutine != null)
+        {
+            StopCoroutine(attackSpeedCoroutine);
+            fireRate = originalFireRate;
+        }
+
+        attackSpeedCoroutine = StartCoroutine(AttackSpeedTimerRoutine(multiplier, duration));
+    }
+
+    private IEnumerator AttackSpeedTimerRoutine(float multiplier, float duration)
+    {
+        // Decrease delay between shots according to multiplier
+        fireRate = originalFireRate / multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        // Reset back to normal speed
+        fireRate = originalFireRate;
+        attackSpeedCoroutine = null;
     }
 }
