@@ -601,12 +601,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 37616095ebf53744c950962f33663458, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.08543229, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 54287403d1ef1354ab53d2f40e6aef75, type: 3}
+  m_Color: {r: 0.514151, g: 1, b: 0.58464664, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 7.84, y: 5.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -621,7 +621,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1552991445}
@@ -665,18 +665,18 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4, y: 0.4}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 5.37, y: 7.84}
+    newSize: {x: 7.84, y: 5.37}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0033255662, y: 0.2048983}
-      - {x: -0.1723314, y: -0.085093856}
-      - {x: -0.0018903734, y: -0.2001512}
-      - {x: 0.16954273, y: -0.083699495}
+    - - {x: 0.05339876, y: 3.9405656}
+      - {x: -2.5614917, y: -0.013775632}
+      - {x: 0.081314206, y: -3.956244}
+      - {x: 2.6656804, y: -0.024267629}
   m_UseDelaunayMesh: 1
 --- !u!50 &498156098
 Rigidbody2D:
@@ -1095,7 +1095,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -11
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8286909644961799071, guid: a0c90c05f88d0c54788b024295584dba, type: 3}
+  m_Sprite: {fileID: 8538136951949719901, guid: 56455265cd9e0ea41ae69f3e4ccf7587, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1841,20 +1841,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e5391c935b1d24b815de495f18117b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LootManager
-  overallDropChance: 50
+  overallDropChance: 20
   lootList:
   - itemName: Shotgun
     itemPrefab: {fileID: 7908547897131343365, guid: 7e56595d2e002744f871e50902033be1, type: 3}
-    dropChance: 50
+    dropChance: 30
   - itemName: Heal
     itemPrefab: {fileID: 1596733407403119604, guid: 320419388d5b9ad4998d659b69850505, type: 3}
-    dropChance: 70
+    dropChance: 25
   - itemName: AttackSpeed
     itemPrefab: {fileID: 8099111347791380942, guid: 92ba10dae03e071459672a0e2bbfc7f6, type: 3}
-    dropChance: 70
+    dropChance: 30
   - itemName: Nuke
     itemPrefab: {fileID: 7915554843411847646, guid: d6b9611b806497d4c9087813f9347d6d, type: 3}
-    dropChance: 70
+    dropChance: 15
 --- !u!114 &1167009949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1867,7 +1867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b54c5b417014d4ea958b0774593bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpeedModifier
-  speedIncreasePerLevel: 5
+  speedIncreasePerLevel: 1
 --- !u!114 &1167009950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,7 +1880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69527685c06c3e84f8f305e472ee7831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DifficultyManager
-  scoreInterval: 100
+  scoreInterval: 200
   speedUpPanel: {fileID: 1207287785}
   notificationDuration: 2
 --- !u!1 &1201399486
@@ -2787,6 +2787,7 @@ MonoBehaviour:
   spawnInterval: 2.5
   spawnRadius: 12
   timer: 0
+  initialSpawnCount: 5
   spawnLocation: {fileID: 498156096}
 --- !u!4 &1514016488
 Transform:
@@ -3042,7 +3043,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enemy move speed INCREASED!!
+  m_text: 'Enemy move speed INCREASED!!
+
+    Enemy spawn time DECREASED!!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4012,8 +4015,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Brandy - \nDigipichu - \nMarlu - \nSaber -  Sound Manager & Game Over
-    Screen and Logic"
+  m_text: "Digipichu\nMarlu \nSaber "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

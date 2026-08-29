@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3561126397130023785}
   - component: {fileID: 996383784530068680}
-  - component: {fileID: 906611474855377989}
   - component: {fileID: 3396545299123374940}
+  - component: {fileID: 966561675254789670}
   m_Layer: 0
   m_Name: NukePowerup
   m_TagString: Untagged
@@ -93,8 +93,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!70 &906611474855377989
-CapsuleCollider2D:
+--- !u!114 &3396545299123374940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7915554843411847646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d328522d8c52f2547a610c18d49e9380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NukePowerUp
+  groundDespawnTime: 5
+--- !u!61 &966561675254789670
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -128,18 +141,14 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
-  m_Direction: 0
---- !u!114 &3396545299123374940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7915554843411847646}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d328522d8c52f2547a610c18d49e9380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NukePowerUp
-  groundDespawnTime: 5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.55, y: 8.49}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 8.55, y: 8.49}
+  m_EdgeRadius: 0
