@@ -6,7 +6,6 @@ public class DifficultyManager : MonoBehaviour
 {
     public static DifficultyManager Instance { get; private set; }
 
-    // Event for other scripts to listen to when score hits threshold
     public static event Action<int> OnDifficultyIncreased;
 
     [Header("Difficulty Settings")]

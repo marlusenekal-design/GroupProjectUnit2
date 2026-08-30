@@ -69,7 +69,7 @@ public class ScoreManager : MonoBehaviour
             scoreText.text = $"Score: {currentScore}";
         }
     }
-    // This function lets other scripts read the current score safely
+   
     public int GetCurrentScore()
     {
         return currentScore;

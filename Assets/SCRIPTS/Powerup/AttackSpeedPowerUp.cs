@@ -3,8 +3,8 @@ using UnityEngine;
 public class AttackSpeedPowerUp : PowerUp
 {
     [Header("Attack Speed Settings")]
-    [SerializeField] private float fireRateMultiplier = 2.5f; // Shoots 2.5x faster
-    [SerializeField] private float duration = 6f; // Stays active for 6 seconds
+    [SerializeField] private float fireRateMultiplier = 2.5f;
+    [SerializeField] private float duration = 6f;
 
     protected override void ApplyEffect(GameObject player)
     {

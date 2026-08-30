@@ -12,7 +12,7 @@ public class ScreenFXController : MonoBehaviour
 
     [Header("Low Health Settings")]
     [SerializeField] private float pulseSpeed = 5f;
-    [SerializeField] private float maxRedAlpha = 0.5f; // Limits maximum redness opacity
+    [SerializeField] private float maxRedAlpha = 0.5f;
     private bool isLowHealthActive = false;
 
     private Coroutine nukeFlashCoroutine;
@@ -25,7 +25,6 @@ public class ScreenFXController : MonoBehaviour
 
     private void Update()
     {
-        // Smooth sine-wave pulsing when player health is critically low
         if (isLowHealthActive && lowHealthImage != null)
         {
             float alpha = (Mathf.Sin(Time.time * pulseSpeed) + 1f) / 2f * maxRedAlpha;
@@ -33,7 +32,6 @@ public class ScreenFXController : MonoBehaviour
         }
         else if (lowHealthImage != null && lowHealthImage.color.a > 0f)
         {
-            // Reset back to invisible when health is restored
             SetImageAlpha(lowHealthImage, 0f);
         }
     }
@@ -45,13 +43,11 @@ public class ScreenFXController : MonoBehaviour
 
     public void TriggerNukeImpact(float shakeDuration = 0.4f, float shakeMagnitude = 0.5f)
     {
-        // 1. Trigger Screen Shake on Camera
         if (CameraShake.Instance != null)
         {
             CameraShake.Instance.Shake(shakeDuration, shakeMagnitude);
         }
 
-        // 2. Trigger White Alpha Flash
         if (nukeFlashImage != null)
         {
             if (nukeFlashCoroutine != null) StopCoroutine(nukeFlashCoroutine);
@@ -61,10 +57,8 @@ public class ScreenFXController : MonoBehaviour
 
     private IEnumerator NukeFlashRoutine()
     {
-        // Immediate full white flash
         SetImageAlpha(nukeFlashImage, 0.85f);
 
-        // Rapidly fade out over ~0.15 seconds
         float duration = 0.15f;
         float elapsed = 0f;
 

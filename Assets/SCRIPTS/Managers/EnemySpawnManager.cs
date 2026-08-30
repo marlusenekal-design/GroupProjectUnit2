@@ -6,7 +6,7 @@ public class EnemySpawnManager : MonoBehaviour
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float spawnRadius = 12f;
     [SerializeField] private float timer = 0f;
-    [SerializeField] private int initialSpawnCount = 5; // Configurable initial spawn count
+    [SerializeField] private int initialSpawnCount = 5;
     public Transform spawnLocation;
 
     private void Start()
@@ -24,7 +24,6 @@ public class EnemySpawnManager : MonoBehaviour
             }
         }
 
-        // Spawn initial batch of enemies right at the start
         for (int i = 0; i < initialSpawnCount; i++)
         {
             SpawnEnemy();
@@ -52,10 +51,8 @@ public class EnemySpawnManager : MonoBehaviour
 
         GameObject selectedPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
-        // Determine center position safely
         Vector3 centerPos = spawnLocation != null ? spawnLocation.position : transform.position;
 
-        // Calculate spawn position around the center
         Vector2 spawnPos = (Vector2)centerPos + Random.insideUnitCircle.normalized * spawnRadius;
 
         Instantiate(selectedPrefab, spawnPos, Quaternion.identity);

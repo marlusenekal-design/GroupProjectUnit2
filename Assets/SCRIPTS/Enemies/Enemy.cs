@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Enemy : MonoBehaviour
 {
-    public static float moveSpeed = 8f;
+    public static float moveSpeed = 4f;
     private bool hasEnteredScreen = false;
     public bool clampToScreen = true;
     public float screenPadding = 0.5f;

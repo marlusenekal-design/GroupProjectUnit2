@@ -21,11 +21,9 @@ public class TitleFloatingAnimation : MonoBehaviour
 
     private void Update()
     {
-        // Smooth vertical floating
         float newY = startPosition.y + Mathf.Sin(Time.time * hoverSpeed) * hoverDistance;
         transform.localPosition = new Vector3(startPosition.x, newY, startPosition.z);
 
-        // Subtle breathing scale
         float scaleOffset = 1f + Mathf.Sin(Time.time * pulseSpeed) * pulseAmount;
         transform.localScale = startScale * scaleOffset;
     }

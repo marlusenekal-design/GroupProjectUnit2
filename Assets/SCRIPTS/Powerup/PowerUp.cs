@@ -4,13 +4,12 @@ using UnityEngine;
 public abstract class PowerUp : MonoBehaviour
 {
     [Header("Ground Lifetime")]
-    public float groundDespawnTime = 5f; // Seconds before item disappears from ground
+    public float groundDespawnTime = 5f;
 
     private bool isCollected = false;
 
     protected virtual void Start()
     {
-        // Automatically destroy the item if left on the ground too long
         Destroy(gameObject, groundDespawnTime);
     }
 
@@ -20,16 +19,13 @@ public abstract class PowerUp : MonoBehaviour
         {
             isCollected = true;
 
-            // Apply effect to player
             ApplyEffect(collision.gameObject);
 
-            // Audio chime
             if (SoundManager.Instance != null)
             {
                 SoundManager.Instance.PlayPowerUp();
             }
 
-            // Remove item from map immediately
             Destroy(gameObject);
         }
     }

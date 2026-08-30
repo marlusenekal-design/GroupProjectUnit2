@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        movement.Normalize(); // Normalize to prevent faster diagonal movement
+        movement.Normalize(); 
 
         RotateTowardMouse();
 

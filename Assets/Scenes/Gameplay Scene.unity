@@ -1805,7 +1805,6 @@ Transform:
   - {fileID: 1514016488}
   - {fileID: 1458483442}
   - {fileID: 1892617017}
-  - {fileID: 2016024855}
   - {fileID: 1948974677}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1828,7 +1827,7 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 7178560694023755975, guid: 18d58bac2442ca04d95daff676461115, type: 3}
     scoreValue: 5
   - enemyPrefab: {fileID: 4124714105240866442, guid: e283892fd4eaa65448a342e723941d2f, type: 3}
-    scoreValue: 20
+    scoreValue: 10
 --- !u!114 &1167009948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1841,14 +1840,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e5391c935b1d24b815de495f18117b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LootManager
-  overallDropChance: 20
+  overallDropChance: 25
   lootList:
   - itemName: Shotgun
     itemPrefab: {fileID: 7908547897131343365, guid: 7e56595d2e002744f871e50902033be1, type: 3}
-    dropChance: 30
+    dropChance: 25
   - itemName: Heal
     itemPrefab: {fileID: 1596733407403119604, guid: 320419388d5b9ad4998d659b69850505, type: 3}
-    dropChance: 25
+    dropChance: 30
   - itemName: AttackSpeed
     itemPrefab: {fileID: 8099111347791380942, guid: 92ba10dae03e071459672a0e2bbfc7f6, type: 3}
     dropChance: 30
@@ -1867,7 +1866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b54c5b417014d4ea958b0774593bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpeedModifier
-  speedIncreasePerLevel: 1
+  speedIncreasePerLevel: 0.2
 --- !u!114 &1167009950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2784,10 +2783,10 @@ MonoBehaviour:
   - {fileID: 3234143864054141170, guid: e82a9f0e5b6fdcf4eb95ea83ab31dccb, type: 3}
   - {fileID: 3234143864054141170, guid: 18d58bac2442ca04d95daff676461115, type: 3}
   - {fileID: 3234143864054141170, guid: e283892fd4eaa65448a342e723941d2f, type: 3}
-  spawnInterval: 2.5
+  spawnInterval: 3
   spawnRadius: 12
   timer: 0
-  initialSpawnCount: 5
+  initialSpawnCount: 3
   spawnLocation: {fileID: 498156096}
 --- !u!4 &1514016488
 Transform:
@@ -4508,51 +4507,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &2016024853
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2016024855}
-  - component: {fileID: 2016024854}
-  m_Layer: 0
-  m_Name: SpeedUpManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2016024854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016024853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19b54c5b417014d4ea958b0774593bfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RogueEnemyMoveSpeed
-  speedIncreasePerLevel: 1
---- !u!4 &2016024855
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2016024853}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.15804, y: -0.36132, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1167009946}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2099577617
 GameObject:
   m_ObjectHideFlags: 0

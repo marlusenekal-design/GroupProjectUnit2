@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   bulletPrefab: {fileID: 1311814626642429063, guid: 8872aead64684e048a405c5fde2a8fc4, type: 3}
   firePoint: {fileID: 1034731539920106712}
-  fireRate: 0.3
+  fireRate: 0.6
   ownerTag: Enemy
   nextFireTime: 0
 --- !u!114 &5032261688415218946

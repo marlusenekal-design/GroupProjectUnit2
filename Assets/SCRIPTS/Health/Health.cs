@@ -9,7 +9,7 @@ public class Health : MonoBehaviour, IDamageable
     public int currentHealth;
 
     [Header("Shield Settings")]
-    [SerializeField] private GameObject shieldVisual; // Optional: drag a glowing shield sprite child object here
+    [SerializeField] private GameObject shieldVisual;
     public bool isShielded { get; private set; } = false;
 
     [Header("Visual Effects")]
@@ -32,7 +32,6 @@ public class Health : MonoBehaviour, IDamageable
     {
         if (currentHealth <= 0) return;
 
-        // If shielded, block all damage
         if (isShielded) return;
 
         currentHealth -= amount;
@@ -58,7 +57,6 @@ public class Health : MonoBehaviour, IDamageable
         CheckLowHealthStatus();
     }
 
-    // Called by ShieldPowerUp.cs
     public void ActivateShield(float duration)
     {
         if (shieldCoroutine != null)
@@ -92,12 +90,10 @@ public class Health : MonoBehaviour, IDamageable
 
     private void CheckLowHealthStatus()
     {
-        // Only trigger low health screen FX if this component belongs to the Player
         if (CompareTag("Player") && ScreenFXController.Instance != null)
         {
             float healthRatio = (float)currentHealth / maxHealth;
 
-            // Active when health is 25% or lower, but player is still alive
             bool isCritical = healthRatio <= 0.25f && currentHealth > 0;
             ScreenFXController.Instance.SetLowHealthState(isCritical);
         }
@@ -105,7 +101,7 @@ public class Health : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        // Turn off low health overlay if player dies
+      
         if (CompareTag("Player") && ScreenFXController.Instance != null)
         {
             ScreenFXController.Instance.SetLowHealthState(false);
